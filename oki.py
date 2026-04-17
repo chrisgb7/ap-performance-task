@@ -3,7 +3,8 @@
 workout_list = [
     {"name": "Push Day", "def": "Chest, shoulders, triceps", "reps": 10},
     {"name": "Pull Day", "def": "Back and biceps", "reps": 8},
-    {"name": "Leg Day", "def": "Quads, hamstrings, calves", "reps": 10}]
+    {"name": "Leg Day", "def": "Quads, hamstrings, calves", "reps": 10}
+]
 
 # Get a workout by name
 def get_workout(workout_name):
@@ -24,19 +25,19 @@ def add_new_workout(new_name=None, new_def=None, new_reps=None):
         new_name = input("Enter a new workout name: ").lower()
     if new_def is None:
         new_def = input("Enter the muscle groups or exercises: ")
-    if new_reps == None:
-        new_reps = input("Amount of reps:")
+    if new_reps is None:
+        new_reps = int(input("Amount of reps: "))
     
-
     new_workout = {"name": new_name, "def": new_def, "reps": new_reps}
     workout_list.append(new_workout)
-    print("Workout added successfully!")
+    print("Workout added.")
 
 def rec_workouts(max_reps):
-    print("Workouts fo you:")
+    print("Workouts for you:")
     for workout in workout_list:
         if workout["reps"] <= max_reps:
             print(workout["name"])
+
 # Main program
 def program():
     answer = input("Do you want to review your gym splits? (yes/no): ").lower()
@@ -54,7 +55,7 @@ def program():
             if selected:
                 tell_workout(selected)
             else:
-                print("Sorry, that workout doesn't exist.")
+                print("Workout doesn't exist.")
 
         answer = input("Do you want to check another workout? (yes/no): ").lower()
 
@@ -64,9 +65,10 @@ def program():
 
     recommend = input("Would you recommend this plan? (yes/no/maybe): ").lower()
     if recommend in ["yes", "maybe"]:
-        print("Nice, keep pushing 💪")
+        print("Great!")
     else:
-        print("Time to upgrade your split!")
+        print("Time to change your split!")
 
 # Run program
 program()
+                                                                                                                                                                                                                                                                                                        
