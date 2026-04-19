@@ -13,18 +13,20 @@ return workout
 return None
 
 # Show workout details
-def tell_workout(workout):
+def showworkout(workout):
 print("Workout:", workout["name"])
 print("Focus:", workout["def"])
 
 # Add a new workout
-def add_new_workout(new_name=None, new_def=None):
-if new_name is None:
-new_name = input("Enter a new workout name: ").lower()
+def addworkout(name=None, new_def=None, reps=None):
+if name is None:
+name = input("Enter a new workout name: ").lower()
 if new_def is None:
 new_def = input("Enter the muscle groups or exercises: ")
+if reps is None:
+reps = int(input("Amount of reps: "))
 
-new_workout = {"name": new_name, "def": new_def}
+new_workout = {"name": name, "def": new_def, "reps": reps}
 workout_list.append(new_workout)
 print("Workout added successfully!")
 
@@ -39,11 +41,11 @@ print("Available workouts:", workouts)
 choice = input("Choose a workout or type 'add' to add a new one: ").lower()
 
 if choice == "add":
-add_new_workout()
+addworkout()
 else:
 selected = get_workout(choice)
 if selected:
-tell_workout(selected)
+showworkout(selected)
 else:
 print("Sorry, that workout doesn't exist.")
 
